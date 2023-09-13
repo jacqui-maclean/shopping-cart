@@ -1,10 +1,9 @@
-import ProductItem from "./ProductItem";
-
 export interface Product {
   id: number;
   title: string;
   price: number;
-  //   inventory: number;
+  inventory?: number;
+  quantity?: number;
 }
 
 interface Props {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import products from "./assets/products.json";
 import ProductsContainer from "./components/ProductsContainer";
 import { Product } from "./components/ProductsContainer";
@@ -8,13 +8,24 @@ const App = () => {
   const [cart, setCart] = useState<Product[]>([]);
   const [cartTotal, setCartTotal] = useState(0);
 
+  useEffect(() => {
+    const initialisedCart: Product[] = [...products];
+    initialisedCart.forEach((item) => {
+      item.quantity = 0;
+    });
+    setCart(initialisedCart);
+  }, []);
+
   const addToCart = (product: Product) => {
-    // setCart([...cart, product]);
-    if (cart.includes(product)) {
-      // add 1 to the quantity of the product in the cart
-    } else {
-      setCart([...cart, product]);
-    }
+    const updatedCart = [...cart];
+    updatedCart.forEach((item) => {
+      if (item.id === product.id) {
+        item.quantity! += 1;
+      }
+    });
+    setCart([...updatedCart]);
+    // }
+    setCartTotal(cartTotal + product.price);
   };
 
   return (
