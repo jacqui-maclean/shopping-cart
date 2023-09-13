@@ -13,7 +13,7 @@ const CartContainer = ({ cart, cartTotal, onAdd, onMinus }: Props) => {
       <div>CartContainer</div>;
       {cart.map((product: Product) => (
         <ul>
-          <li style={{ listStyle: "none" }} key={product.id}>
+          <li style={{ listStyle: "none" }} key={product.title}>
             <h3>{product.quantity! > 0 && product.title}</h3>
             <p>
               {product.quantity! > 0 && ` price per item   £${product.price}`}
