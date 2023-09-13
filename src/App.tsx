@@ -28,13 +28,30 @@ const App = () => {
     setCartTotal(cartTotal + product.price);
   };
 
+  const minusOne = (product: Product) => {
+    const updatedCart = [...cart];
+    updatedCart.forEach((item) => {
+      if (item.id === product.id) {
+        item.quantity! -= 1;
+      }
+    });
+    setCart([...updatedCart]);
+    // }
+    setCartTotal(cartTotal - product.price);
+  };
+
   return (
     <div>
       <h2>Shopping Cart Example</h2>
       <hr />
       <ProductsContainer products={products} onAddToCart={addToCart} />
       <hr />
-      <CartContainer cart={cart} cartTotal={cartTotal} />
+      <CartContainer
+        cart={cart}
+        cartTotal={cartTotal}
+        onAdd={addToCart}
+        onMinus={minusOne}
+      />
     </div>
   );
 };

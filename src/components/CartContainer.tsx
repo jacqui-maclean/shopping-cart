@@ -3,9 +3,11 @@ import { Product } from "./ProductsContainer";
 interface Props {
   cart: Product[];
   cartTotal: number;
+  onAdd: (product: Product) => void;
+  onMinus: (product: Product) => void;
 }
 
-const CartContainer = ({ cart, cartTotal }: Props) => {
+const CartContainer = ({ cart, cartTotal, onAdd, onMinus }: Props) => {
   return (
     <>
       <div>CartContainer</div>;
@@ -17,6 +19,12 @@ const CartContainer = ({ cart, cartTotal }: Props) => {
               {product.quantity! > 0 && ` price per item   £${product.price}`}
             </p>
             <p>{product.quantity! > 0 && product.quantity}</p>
+            {product.quantity! > 0 && (
+              <>
+                <button onClick={() => onMinus(product)}>-</button>
+                <button onClick={() => onAdd(product)}>+</button>
+              </>
+            )}
           </li>
         </ul>
       ))}
