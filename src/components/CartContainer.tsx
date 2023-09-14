@@ -11,6 +11,9 @@ const CartContainer = ({ cart, cartTotal, onAdd, onMinus }: Props) => {
   return (
     <>
       <div>CartContainer</div>;
+      {/* I had misplaced the <ul></ul> tags within the code, and this was throwing an error in the console.
+      I checked stackoverflow and for help, but this did not tell me anything new. Then I put the question to chatgpt
+      with a code snippet and it highlighted the problem */}
       <ul>
         {cart.map((product: Product) => (
           <li key={product.id} style={{ listStyle: "none" }}>
