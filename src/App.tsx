@@ -73,6 +73,7 @@ const App = () => {
     <div>
       <h2>Shopping Cart Example</h2>
       <hr />
+      {/* making cart the single source of truth */}
       <ProductsContainer products={cart} onAddToCart={addToCart} />
       <hr />
       <CartContainer
