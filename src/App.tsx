@@ -73,7 +73,7 @@ const App = () => {
     <div>
       <h2>Shopping Cart Example</h2>
       <hr />
-      <ProductsContainer products={products} onAddToCart={addToCart} />
+      <ProductsContainer products={cart} onAddToCart={addToCart} />
       <hr />
       <CartContainer
         cart={cart}

@@ -16,10 +16,18 @@ const ProductsContainer = ({ products, onAddToCart }: Props) => {
       <div>ProductsContainer</div>
       {products.map((product: Product) => (
         <ul>
-          <li key={product.id}>
+          <li key={product.id} style={{ listStyle: "none" }}>
             <h3>{product.title}</h3>
             <p>£{product.price}</p>
-            <button onClick={() => onAddToCart(product)}>Add to Cart</button>
+            <div>
+              {product.quantity! <= product.inventory! ? (
+                <button onClick={() => onAddToCart(product)}>
+                  Add to Cart
+                </button>
+              ) : (
+                <p>Out of Stock</p>
+              )}
+            </div>
           </li>
         </ul>
       ))}
