@@ -14,8 +14,8 @@ const ProductsContainer = ({ products, onAddToCart }: Props) => {
   return (
     <>
       <div>ProductsContainer</div>
-      {products.map((product: Product) => (
-        <ul>
+      <ul>
+        {products.map((product: Product) => (
           <li key={product.id} style={{ listStyle: "none" }}>
             <h3>{product.title}</h3>
             <p>£{product.price}</p>
@@ -29,8 +29,8 @@ const ProductsContainer = ({ products, onAddToCart }: Props) => {
               )}
             </div>
           </li>
-        </ul>
-      ))}
+        ))}
+      </ul>
     </>
   );
 };
